@@ -91,13 +91,13 @@ def make_prediction(X_test, fitted_model):
 
 if __name__ == '__main__':
     
-    df = pandas_csv_reader('./share_price_forcast_demand_functions/train.csv')
+    df = pandas_csv_reader('./forcast_demand/train.csv')
     y = df['count']
         
     expandedcolumn =feature_expansion(df)
     X = expandedcolumn.drop('count', axis=1)
     
-    X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.30, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.20, random_state=48)
 
     fitted_mode = train_model(X_train, y_train)
     
